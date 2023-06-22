@@ -23,6 +23,10 @@ struct ConvertGSMNetworkProblemToSat {
 
     void printEquisatisfiableSatFormula() {
         // each vertex has one and only one color
+        int num_clauses = numVertices * 4 + 3 * static_cast<int>(edges.size());
+        int num_vars = numVertices * 3;
+        cout << num_clauses << ' ' << num_vars << endl;
+
         for (auto i = 1; i < numVertices + 1; ++i) {
             auto v = RGB(i);
             cout << v.r << ' ' << v.g << ' ' << v.b << " 0\n"; // r or g or b
